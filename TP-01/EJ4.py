@@ -15,7 +15,8 @@ def calcular_cambio(total_compra: int, dinero_recibido: int) -> list:
     """
     CONTRATO:
     PRE:
-        total_compra >= 0, dinero_recibido >= 0
+        total_compra debe de ser mayor o igual a 0.
+        dinero_recibido debe de ser mayor o igual a 0.
     POST:
         Devuelve una lista con la cantidad de billetes a devolver como cambio,
         o un mensaje de error si no es posible dar el cambio.
@@ -50,13 +51,12 @@ def calcular_cambio(total_compra: int, dinero_recibido: int) -> list:
 
     return cantidades
 
-
 # FUNCIÓN: solicitar_datos
-def solicitar_datos() -> tuple:
+def solicitar_datos() -> tuple[int,int]:
     """
     CONTRATO:
     PRE:
-        No hay requisitos específicos para la entrada del usuario.
+        El usuario debera ingresar valores(int)
     POST:
         Devuelve una tupla con el total de la compra y el dinero recibido.
     """
