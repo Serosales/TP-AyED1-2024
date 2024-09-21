@@ -7,18 +7,18 @@ comienza en domingo."""
 from functools import reduce
 
 # Función lambda para determinar si un año es bisiesto
-es_bisiesto = lambda año: (año % 4 == 0 and año % 100 != 0) or (año % 400 == 0)
+leap_year = lambda year: (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
 
 
 # FUNCIÓN: dia_de_la_semana
-def dia_de_la_semana(dia: int, mes: int, year: int) -> int:
+def day_of_the_week(day: int, month: int, year: int) -> int:
     """
     Calcula el día de la semana para una fecha dada.
 
     CONTRATO:
     PRE:
-        dia: (int), valor entre 1 y 31 (según el mes y año).
-        mes: (int), valor entre 1 y 12.
+        day: (int), valor entre 1 y 31 (según el mes y año).
+        month: (int), valor entre 1 y 12.
         year: (int), valor mayor o igual a 0.
 
     POST:
@@ -29,16 +29,16 @@ def dia_de_la_semana(dia: int, mes: int, year: int) -> int:
              ...
              6 representa sábado
     """
-    if mes < 3:
-        mes += 12
+    if month < 3:
+        month+= 12
         year -= 1
     siglo = year // 100
-    anio2 = year % 100
+    year_2 = year % 100
     diasem = (
-        ((26 * (mes + 1) - 2) // 10)
-        + dia
-        + anio2
-        + (anio2 // 4)
+        ((26 * (month + 1) - 2) // 10)
+        + day
+        + year_2
+        + (year_2 // 4)
         + (siglo // 4)
         - (2 * siglo)
     ) % 7
@@ -46,7 +46,7 @@ def dia_de_la_semana(dia: int, mes: int, year: int) -> int:
 
 
 # FUNCIÓN: dias_del_mes
-def dias_del_mes(mes: int, year: int) -> int:
+def day_of_the_month(month: int, year: int) -> int:
     """
     Devuelve el número de días en un mes específico considerando si es bisiesto.
 
@@ -58,16 +58,16 @@ def dias_del_mes(mes: int, year: int) -> int:
     POST:
         Devuelve el número de días en el mes especificado. Los valores posibles son 28, 30 o 31.
     """
-    if mes in {1, 3, 5, 7, 8, 10, 12}:
+    if month in {1, 3, 5, 7, 8, 10, 12}:
         return 31
-    elif mes in {4, 6, 9, 11}:
+    elif month in {4, 6, 9, 11}:
         return 30
-    elif mes == 2:
-        return 29 if es_bisiesto(year) else 28
+    elif month == 2:
+        return 29 if (year) else 28
 
 
 # FUNCIÓN: armar_mes
-def armar_mes(dia: int, dias: int) -> list:
+def armar_mes(day: int, days: int) -> list:
 
     """ Genera una lista de días del mes con espacios iniciales utilizando lambda.
 
@@ -82,7 +82,7 @@ def armar_mes(dia: int, dias: int) -> list:
         y los siguientes elementos son los días del mes, comenzando con 1 y terminando con 'dias'. 
     """
     generar_dias = lambda dia, dias: [0] * dia + list(range(1, dias + 1))
-    return generar_dias(dia, dias)
+    return generar_dias(day, days)
 
 
 # FUNCIÓN: imprimir_mes
@@ -128,8 +128,8 @@ def main() -> None:
     """
     mes = int(input("Ingrese el número de mes (1-12): "))
     year = int(input("Ingrese el año: "))
-    dia = dia_de_la_semana(1, mes, year)
-    dias = dias_del_mes(mes, year)
+    dia = day_of_the_week(1, mes, year)
+    dias = day_of_the_month(mes, year)
     lista_mes = armar_mes(dia, dias)
     nombre_mes = meses[mes - 1]
     imprimir_mes(lista_mes, nombre_mes, year)
