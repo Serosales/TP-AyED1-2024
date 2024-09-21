@@ -17,7 +17,7 @@ def obtener_viajes() -> int:
     """
     CONTRATO:
     PRE:
-    No se requiere entrada específica.
+    El usuario debe ingresar números(int) positivos
     POST:
     Devuelve la cantidad de viajes ingresada por el usuario.
     """
@@ -29,7 +29,7 @@ def determinar_total_gasto(viajes: int, tarifa_maxima: float) -> float:
     """
     CONTRATO:
     PRE:
-    viajes es un entero positivo y tarifa_maxima es un número positivo.
+    viajes es un (int) positivo y tarifa_maxima es un número(float) que  debe ser mayor que 0.
     POST:
     Devuelve el total calculado basado en la cantidad de viajes y el descuento.
     """
@@ -39,22 +39,7 @@ def determinar_total_gasto(viajes: int, tarifa_maxima: float) -> float:
 
     for limite, descuento in rangos_descuentos:
         if viajes <= limite:
-            return viajes * tarifa_maxima * descuento  # Retorna el total calculado
-
-
-# FUNCIÓN: Calcular el total de gastos en viajes de subterráneo
-def calcular_gasto(viajes: int, tarifa_maxima: float) -> float:
-    """
-    CONTRATO:
-    PRE:
-    viajes es un entero positivo y tarifa_maxima es un número positivo.
-    POST:
-    Devuelve el total gastado en viajes basado en la cantidad de viajes y la tarifa.
-    """
-    return determinar_total_gasto(
-        viajes, tarifa_maxima
-    )  # Retorna el total desde la función secundaria
-
+            return viajes * tarifa_maxima * descuento  # Retorna el total calculado.
 
 # FUNCIÓN: main
 def main() -> None:
@@ -69,7 +54,7 @@ def main() -> None:
     tarifa_maxima = 2.0  # Ejemplo de tarifa máxima, actualízala según corresponda
     viajes_realizados = obtener_viajes()  # Llamada a la función para obtener viajes
 
-    total = calcular_gasto(viajes_realizados, tarifa_maxima)
+    total = determinar_total_gasto(viajes_realizados, tarifa_maxima)
     print(f"Total gastado en viajes: ${total:.2f}")
 
 
