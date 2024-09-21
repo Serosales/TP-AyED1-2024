@@ -10,20 +10,20 @@ def encontrar_numero_mayor(num_1: int, num_2: int, num_3: int) -> int:
     """
     CONTRATO:
     PRE:
-        Devuelve el mayor de los tres números solo si es único.
+        El mayor de los tres números solo si es único.
     POST:
         Devuelve -1 si no hay un número máximo único.
     """
     # Encontrar el mayor de los tres números.
-    numero_maximo = max(num_1, num_2, num_3)
+    num_max = max(num_1, num_2, num_3)
 
     # Verificar si el número máximo es único
-    conteo_maximo = (
-        (numero_maximo == num_1) + (numero_maximo == num_2) + (numero_maximo == num_3)
+    count_max = (
+        (num_max == num_1) + (num_max== num_2) + (num_max == num_3)
     )
 
-    if conteo_maximo == 1:
-        return numero_maximo
+    if count_max == 1:
+        return num_max
     else:
         return -1
 
@@ -59,40 +59,6 @@ def verificar_resultado(resultado: int) -> str:
     else:
         return f"EL NÚMERO MÁXIMO ÚNICO ES {resultado}"
 
-#FUNCIÓN: ingrese_los_numeros
-def ingrese_los_numeros() -> tuple:
-    """
-    CONTRATO:
-     PRE:
-        Se espera que el usuario ingrese tres números enteros.
-     POST:
-        Retorna una tupla con tres números enteros ingresados por el usuario.
-    """
-    primer_numero = int(input("Ingrese el primer número: "))
-    segundo_numero = int(input("Ingrese el segundo número: "))
-    tercer_numero = int(input("Ingrese el tercer número: "))
-
-    return (primer_numero, segundo_numero, tercer_numero)
-
-#FUNCIÓN: encontrar_numero_mayor
-def encontrar_numero_mayor(
-    primer_numero: int, segundo_numero: int, tercer_numero: int
-) -> int:
-    """
-    CONTRATO:
-     PRE:
-        "resultado" es un número entero. Puede ser un número positivo o -1.
-     POST:
-         Si "resultado" es -1, la función retorna el mensaje "NO SE PUDO ENCONTRAR UN ÚNICO NÚMERO MÁXIMO".
-         De lo contrario, la función retorna un mensaje en la forma "EL NÚMERO MÁXIMO ÚNICO ES {resultado}".
-    """
-    numeros = [primer_numero, segundo_numero, tercer_numero]
-    maximo = max(numeros)
-    if numeros.count(maximo) == 1:
-        return maximo
-    else:
-        return -1  # Indica que no hay un único máximo
-
 # FUNCIÓN: main
 def main() -> None:
     """
@@ -104,6 +70,7 @@ def main() -> None:
         se verifica el resultado y se imprime un mensaje correspondiente.
         No tiene parametro de retorno.
     """
+
     primer_numero, segundo_numero, tercer_numero = ingrese_los_numeros()
     resultado_maximo = encontrar_numero_mayor(
         primer_numero, segundo_numero, tercer_numero
