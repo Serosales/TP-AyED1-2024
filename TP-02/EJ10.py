@@ -2,20 +2,21 @@
 elementos de la primera que sean impares. El proceso deberá realizarse utilizando
 la función filter(). Imprimir las dos listas por pantalla.  """
 
-import random as rn
+from  random  import randint as rn
+from typing import List
 
 # FUNCIÓN: generar_lista
-def generar_lista():
+def generar_lista()->list[int]:
     """
     CONTRATO:
     PRE:
         Ninguna
     POST:
         Retorna una lista de 20 números aleatorios entre 1 y 100"""
-    return [rn.randint(1, 100) for _ in range(20)]
+    return [rn(1, 100) for _ in range(20)]
 
 # FUNCIÓN: filtrar_impares
-def filtrar_impares(lista):
+def filtrar_impares(lista:list[int])->list[int]:
 
     """
     CONTRATO:
@@ -29,11 +30,13 @@ def filtrar_impares(lista):
 # FUNCIÓN main
 def main()->None:
     """
+    CONTRATO:
     PRE: 
         Ninguna
 
     POST: 
-        Imprime la lista original y la lista de números impares)."""
+        Imprime la lista original y la lista de números impares.
+        No tiene parametros de retorno."""
     # Generar una lista con números al azar entre 1 y 100
     lista_original = generar_lista()
 
