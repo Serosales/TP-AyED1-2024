@@ -5,7 +5,7 @@ normalizar([1, 1, 2]) debe devolver [0.25, 0.25, 0.50]."""
 
 
 # FUNCIÓN: normalizar
-def normalizar(lista):
+def normalizar(lista) -> list:
     """
     Normaliza una lista de números enteros de manera que la suma de los elementos normalizados sea 1.0.
 
@@ -41,6 +41,7 @@ def main() -> None:
      Imprime la lista original y la lista normalizada en la consola.
      Imprime la suma de los elementos normalizados en la consola.
      Emite una advertencia si la suma de los elementos normalizados no es 1.0.
+     No tiene parametros de retorno.
     """
     # Lista de ejemplo
     lista = [1, 1, 2]
