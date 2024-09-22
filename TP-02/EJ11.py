@@ -12,6 +12,9 @@ b. Realizar la búsqueda de un número de afiliado e informar cuántas veces fue
 atendido por turno y cuántas por urgencia. Repetir esta búsqueda hasta
 que se ingrese -1 como número de afiliado."""
 
+from typing import List, Dict, Tuple
+
+
 # FUNCIÓN: Registrar pacientes
 def registrar_pacientes() -> tuple[list[int], list[int]]:
     """
@@ -19,7 +22,7 @@ def registrar_pacientes() -> tuple[list[int], list[int]]:
     Registra los pacientes en la clínica y retorna dos listas:
     una con los pacientes atendidos por urgencia y otra con los pacientes atendidos por turno.
     PRE:
-        El usuario ingresa números de afiliado y tipo de atención hasta ingresar -1.
+        El usuario ingresa números de afiliado(4 digitos) y tipo de atención hasta ingresar -1.
     POST:
         Retorna dos listas: urgencias y turnos.
     """
@@ -65,7 +68,9 @@ def mostrar_listados(urgencias: list[int], turnos: list[int]) -> None:
 
 
 # FUNCIÓN: Buscar afiliado
-def buscar_afiliado(urgencias: list[int], turnos: list[int]) -> dict[int, tuple[int, int]]:
+def buscar_afiliado(
+    urgencias: list[int], turnos: list[int]
+) -> dict[int, tuple[int, int]]:
     """
     CONTRATO:
     Realiza la búsqueda de un número de afiliado y muestra cuántas veces fue atendido por turno y urgencia.
@@ -92,8 +97,8 @@ def buscar_afiliado(urgencias: list[int], turnos: list[int]) -> dict[int, tuple[
 
 def main() -> None:
     """
-    Ejecuta el programa para registrar pacientes, mostrar listados y buscar afiliados.
     CONTRATO:
+     Ejecuta el programa para registrar pacientes, mostrar listados y buscar afiliados.
     PRE:
         Ninguno.
     POST:
