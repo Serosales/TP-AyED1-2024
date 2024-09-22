@@ -7,7 +7,8 @@ def crear_baraja() -> list:
     """
     CONTRATO: 
     PRE: Crea una lista de naipes de la baraja española.
-    POST: Devuelve una lista de cadenas representando los naipes.
+    POST: Devuelve una lista de 48 cadenas que representan los naipes de la baraja.
+    debe de tener todad la combinaciones posibles (12 números y 4 palos).
     """
     palos = ["Oros", "Copas", "Espadas", "Bastos"]
     numeros = [str(i) for i in range(1, 8)] + ["Sota", "Caballo", "Rey"]
