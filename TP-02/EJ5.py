@@ -5,7 +5,7 @@ además un programa para verificar el comportamiento de la función. """
 
 
 # FUNCION:ordenada
-def ordenada(lst):
+def ordenada(lst) -> bool:
     """
     Verifica si la lista está ordenada en forma ascendente.
 
@@ -22,17 +22,19 @@ def ordenada(lst):
 
 
 # FUNCION:verificar_ordenada
-def verificar_ordenada():
+def verificar_ordenada() -> None:
     """
     Verifica el comportamiento de la función ordenada con varias listas de prueba.
 
     CONTRATO:
     PRE:
-     No hay datos de entrada. La función define internamente las listas de prueba.
+     No hay datos de entrada.
+     La función define internamente las listas de prueba.
      Las listas de prueba deben ser listas de elementos comparables entre sí.
 
     POST:
-    - Imprime si cada lista de prueba está ordenada (True) o no (False).
+     Imprime si cada lista de prueba está ordenada (True) o no (False).
+    No tiene parametros de tretorno
     """
     listas = [
         [1, 2, 3],  # Ordenada
@@ -47,8 +49,9 @@ def verificar_ordenada():
         resultado = ordenada(lst)
         print(f"La lista {lst} está ordenada: {resultado}")
 
+
 # FUNCION: main
-def main():
+def main() -> None:
     """
     Función principal que ejecuta la verificación de las listas.
 
@@ -58,6 +61,7 @@ def main():
 
     POST:
      Llama a verificar_ordenada para imprimir los resultados de la verificación.
+     No tiene parametros de retorno.
     """
     verificar_ordenada()
 
